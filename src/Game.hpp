@@ -9,5 +9,7 @@ class Game : public RenderD7::Scene
     ~Game();
     private:
     
-    
+    std::vector<RenderD7::DirContent> dircontent;
+    int dirsel = 0;
+    bool changeddir = false;
 };
