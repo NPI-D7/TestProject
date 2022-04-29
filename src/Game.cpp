@@ -7,7 +7,7 @@ Game::Game()
     this->dircontent.clear();
     chdir("sdmc:/");
     std::vector<RenderD7::DirContent> temp;
-    RenderD7::GetDirContentsExt(temp, {"bcstm"});
+    RenderD7::GetDirContents(temp);
     for (uint i = 0; i < temp.size(); i++)
     {
         this->dircontent.push_back(temp[i]);
@@ -48,7 +48,7 @@ void Game::Logic(u32 hDown, u32 hHeld, u32 hUp, touchPosition touch)
         
 		this->dircontent.clear();
 		std::vector<RenderD7::DirContent> temp;
-		RenderD7::GetDirContentsExt(temp, {"bcstm"});
+		RenderD7::GetDirContents(temp);
 
 		for(uint i = 0; i < temp.size(); i++) {
 			this->dircontent.push_back(temp[i]);
@@ -73,12 +73,7 @@ void Game::Logic(u32 hDown, u32 hHeld, u32 hUp, touchPosition touch)
             {
                 if (RenderD7::NameIsEndingWith(this->dircontent[this->dirsel].name, {"bcstm"}) && RenderD7::IsNdspInit())
                 {
-                    playing = false;
-                    player.stop();
-                    player.openFromFile(this->dircontent[this->dirsel].name);
-                    player.play();
-                    currentlypl = this->dircontent[this->dirsel].name;
-                    playing = true;
+                   
                 }
                 else
                 {
