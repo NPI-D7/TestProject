@@ -1,5 +1,4 @@
 #include "renderd7.hpp"
-#include "TEX.h"
 #include "Game.hpp"
 
 int main()
