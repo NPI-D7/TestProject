@@ -3,6 +3,7 @@
 
 Game::Game()
 {
+    RenderD7::Exit::Graphics();
     consoleInit(GFX_TOP, NULL);
     this->dircontent.clear();
     chdir("sdmc:/");
